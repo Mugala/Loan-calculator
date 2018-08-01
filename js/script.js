@@ -33,3 +33,28 @@ function calculateResults(e){
 
     e.preventDefault();
 }
+
+// show Error
+function showError(error){
+    //.create a div
+    const errorDiv = document.createElement('div');
+
+    //get elements
+    const card = document.querySelector('.card');
+    const heading = document.querySelector('.heading');
+    // Add class
+    errorDiv.className = 'alert alert-danger';
+
+    // create text node and append to div
+    errorDiv.appendChild(document.createTextNode(error));
+
+    // Insert error above heading
+    card.insertBefore(errorDiv, heading);
+
+    // Clear error after 3 seconds
+    setTimeout(clearError, 2000); 
+}
+//clear error
+function clearError(){
+    document.querySelector('.alert').remove();
+}
